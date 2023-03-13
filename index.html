@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hand-hour">00</div>
+            <div class="hand hand-min">00</div>
+            <div class="hand hand-second">00</div>
+        </div>
+    </div>
+    <style>
+        .clock {
+            background-color: aqua;
+
+        }
+        .clock-face {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hand {
+            width: 10rem;
+            height: 10rem;
+            font-size: 5rem;
+            color: aliceblue;
+            
+        }
+    </style>
+    <script>
+        const seconds = document.querySelector('.hand-second')
+        const minutes = document.querySelector('.hand-min')
+        const hours = document.querySelector('.hand-hour')
+        function setDate () {
+            const form = new Date();
+            const second = form.getSeconds();
+            const minute = form.getMinutes();
+            const hour = form.getHours();
+            seconds.innerHTML = second.toLocaleString();
+            minutes.innerHTML = minute.toLocaleString();
+            hours.innerHTML = hour.toLocaleString();
+        }
+        setInterval(setDate, 1000)
+    </script>
+</body>
+</html>
